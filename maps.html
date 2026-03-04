@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
 <meta charset="utf-8">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/reset.css">
 <link rel="stylesheet" href="css/styles.css">
@@ -15,6 +19,7 @@
 <body id="map-page">
 
 <header>
+
 <h1>Location Map</h1>
 
 <nav>
@@ -36,9 +41,9 @@
 
 <p>
 This page demonstrates the integration of the Google Maps API into the website.
-The map below shows a selected location and includes additional features such
-as markers, information windows, and the ability to center the map on the
-user’s current location using browser geolocation.
+The map below shows a selected location and includes additional features such as
+markers, information windows, and the ability to center the map on the user’s
+current location using browser geolocation.
 </p>
 
 <div id="map"></div>
@@ -55,6 +60,35 @@ user’s current location using browser geolocation.
 <footer>
 <p>ProCentric Research Project Map Page</p>
 </footer>
+
+<!-- Google Maps Script -->
+<script>
+
+function initMap(){
+
+const location = {lat:49.1913, lng:-122.8490};
+
+const map = new google.maps.Map(
+document.getElementById("map"),
+{
+zoom:12,
+center:location
+}
+);
+
+const marker = new google.maps.Marker({
+position:location,
+map:map,
+title:"Surrey Location"
+});
+
+}
+
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB8E_k10PLGczJok9rU8HEhZBQ-9WnFtcM&callback=initMap">
+</script>
 
 </body>
 </html>
