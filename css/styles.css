@@ -10,6 +10,10 @@
   --card: rgba(255, 255, 255, 0.7);
 }
 
+/* =========================
+   Base / Shared
+========================= */
+
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   line-height: 1.7;
@@ -102,6 +106,20 @@ img {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   max-width: 100%;
+  height: auto;
+}
+
+/* Footer */
+footer {
+  margin-top: 1.2rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.6);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+footer p {
+  margin: 0;
 }
 
 /* Fixed layout element (can be used anywhere) */
@@ -121,9 +139,11 @@ img {
   max-width: 100%;
 }
 
-/* ========== Unique per page styles ========== */
+/* =========================
+   Unique per page styles
+========================= */
 
-/* Background page: soft gradient + highlight first section */
+/* Background page */
 #background-page {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
 }
@@ -144,7 +164,7 @@ img {
   background: rgba(0, 0, 0, 0.02);
 }
 
-/* Resume page: clean, structured typography emphasis */
+/* Resume page */
 #resume-page {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.06));
 }
@@ -166,7 +186,7 @@ img {
   padding-left: 1.5rem;
 }
 
-/* Research page: slightly “tech” feel + emphasized second section */
+/* Research page */
 #research-page {
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
 }
@@ -186,4 +206,125 @@ img {
 
 #research-page img {
   max-width: 44rem;
+}
+
+/* =========================
+   Project 3: Slider styles
+========================= */
+
+.slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+  margin-top: 0.9rem;
+}
+
+.slider img {
+  margin-top: 0; /* override global img margin-top for slider */
+  width: 100%;
+  max-width: 44rem;
+}
+
+.slider-btn {
+  border: var(--border);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+.slider-btn:hover,
+.slider-btn:focus {
+  outline: 0.12rem solid rgba(0, 0, 0, 0.45);
+  outline-offset: 0.15rem;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   Project 3: Map page styles
+========================= */
+
+#map-page {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.01));
+}
+
+#map {
+  height: 24rem;
+  width: 100%;
+  border-radius: var(--radius);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  margin-top: 0.9rem;
+}
+
+.map-actions {
+  margin-top: 0.9rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.map-actions button {
+  border: var(--border);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999rem;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+.map-actions button:hover,
+.map-actions button:focus {
+  outline: 0.12rem solid rgba(0, 0, 0, 0.45);
+  outline-offset: 0.15rem;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* =========================
+   Project 3: Media Queries
+   (Research page only)
+   Requirement: 2 min-width queries,
+   5+ changes in each.
+========================= */
+
+/* MQ #1 */
+@media (min-width: 600px) {
+  #research-page header {
+    padding: 1.6rem;          /* 1 */
+  }
+
+  #research-page header h1 {
+    font-size: 2.4rem;        /* 2 */
+  }
+
+  #research-page nav ul {
+    gap: 1rem;                /* 3 */
+    padding: 0.75rem;         /* 4 */
+  }
+
+  #research-page section {
+    padding: 1.4rem;          /* 5 */
+  }
+
+  #research-page img {
+    max-width: 46rem;         /* 6 (extra) */
+  }
+}
+
+/* MQ #2 */
+@media (min-width: 1000px) {
+  #research-page main {
+    display: grid;            /* 1 */
+    grid-template-columns: 1fr 1fr; /* 2 */
+    gap: 1.2rem;              /* 3 */
+    align-items: start;       /* 4 */
+  }
+
+  #research-page section {
+    margin-top: 0;            /* 5 */
+  }
+
+  #research-page section:nth-of-type(3) {
+    grid-column: 1 / -1;      /* 6 (extra) */
+  }
 }
