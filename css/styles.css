@@ -1,0 +1,189 @@
+:root {
+  --max: 74rem;
+  --pad: 1rem;
+  --radius: 0.9rem;
+  --border: 0.1rem solid rgba(0, 0, 0, 0.18);
+  --shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.08);
+  --text: #111;
+  --muted: rgba(0, 0, 0, 0.06);
+  --muted-2: rgba(0, 0, 0, 0.09);
+  --card: rgba(255, 255, 255, 0.7);
+}
+
+body {
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Shared layout container */
+header,
+main,
+footer {
+  width: min(100%, var(--max));
+  margin: 0 auto;
+  padding: var(--pad);
+}
+
+/* Shared header style (same on every page) */
+header {
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  border: var(--border);
+}
+
+header h1 {
+  font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.02em;
+}
+
+/* Centered horizontal navigation */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.6rem;
+  margin: 0;
+  border-radius: 999rem;
+  border: var(--border);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.5rem 0.85rem;
+  border-radius: 999rem;
+  display: inline-block;
+}
+
+nav a:hover,
+nav a:focus {
+  outline: 0.12rem solid rgba(0, 0, 0, 0.45);
+  outline-offset: 0.15rem;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Shared section/card style */
+section {
+  margin-top: 1.2rem;
+  padding: 1.1rem;
+  border-radius: var(--radius);
+  background: var(--card);
+  border: var(--border);
+  box-shadow: var(--shadow);
+}
+
+h2,
+h3 {
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0.85rem 0 0 0;
+}
+
+ul,
+ol {
+  margin: 0.85rem 0 0 0;
+  padding-left: 1.35rem;
+}
+
+img {
+  margin-top: 0.9rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 100%;
+}
+
+/* Fixed layout element (can be used anywhere) */
+.fixed-box {
+  width: 24rem;
+  max-width: 100%;
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border-radius: var(--radius);
+  border: var(--border);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* One fixed-width page requirement (resume more fixed) */
+#resume-page main {
+  width: 60rem;
+  max-width: 100%;
+}
+
+/* ========== Unique per page styles ========== */
+
+/* Background page: soft gradient + highlight first section */
+#background-page {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.01));
+}
+
+#background-page section:first-of-type {
+  border-left: 0.4rem solid rgba(0, 0, 0, 0.5);
+}
+
+#background-page h2 {
+  font-size: 1.45rem;
+}
+
+#background-page img {
+  max-width: 40rem;
+}
+
+#background-page .fixed-box {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+/* Resume page: clean, structured typography emphasis */
+#resume-page {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0.06));
+}
+
+#resume-page section {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+#resume-page h2 {
+  font-size: 1.55rem;
+}
+
+#resume-page h3 {
+  font-size: 1.1rem;
+  margin-top: 0.9rem;
+}
+
+#resume-page ul {
+  padding-left: 1.5rem;
+}
+
+/* Research page: slightly “tech” feel + emphasized second section */
+#research-page {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.01));
+}
+
+#research-page section:nth-of-type(2) {
+  border: 0.14rem solid rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+#research-page h2 {
+  font-size: 1.45rem;
+}
+
+#research-page ol {
+  padding-left: 1.6rem;
+}
+
+#research-page img {
+  max-width: 44rem;
+}
